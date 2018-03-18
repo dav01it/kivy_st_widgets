@@ -5,7 +5,7 @@ The purpose of this project is to create some standard useful widgets that you o
 
 1. The first widget is a TEXTBOX that accepts ONLY NUMBERS.
 ------------------------------------------------------------------
-On a desktop enviroment and SHOWS a numeric KEYBOARD on android env.
+On a desktop enviromentfilters input while on android env.SHOULD  SHOW a numeric KEYBOARD
 ---------------------------------------------------------------------
 
 TODO:
