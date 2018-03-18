@@ -5,9 +5,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 import FloatInput
-from kivy.config import Config
 
-Config.set('kivy', 'keyboard_mode', 'dock')
 
 kv = """
 #:import FadeTransition kivy.uix.screenmanager.FadeTransition
@@ -31,11 +29,25 @@ ScreenManager:
             size_hint_y: 0.25
             text: "exit"
             on_release: app.ap_exit()
+        Label:
+            size_hint_y: 0.15
+            text: "Float Input"
+        
         FloatInput:
             size_hint_y: 0.15
             font_size : dp(26)
+            #input_type: number
             id: testFloat
             text: "0"
+        Label:
+            size_hint_y: 0.15
+            text: "Standard text Input"
+        
+        TextInput:
+            size_hint_y: 0.15
+            font_size : dp(26)
+            id: testFloat
+            text: "abc"
         Label:
             #size_hint_y: 0.15
             id: first_screen

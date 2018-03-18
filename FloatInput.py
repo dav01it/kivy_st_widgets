@@ -2,14 +2,17 @@ import kivy
 from kivy.uix.textinput import TextInput
 import re
 from kivy.core.window import Window
+from kivy.config import Config
+
+Config.set('kivy', 'keyboard_mode', 'dock')
 
 class FloatInput(TextInput):
     def __init__(self, **kwargs):
        super(FloatInput, self).__init__(**kwargs)
-       keyboard = Window.request_keyboard(
-           self._keyboard_close, self)
-       if keyboard.widget:
-           vkeyboard = keyboard.widget
+       self._keyboard  = Window.request_keyboard(
+           self._keyboard_close, self, input_type='number')
+       if self._keyboard.widget:
+           vkeyboard = self._keyboard .widget
            vkeyboard.layout = 'numeric.json'
 
     def _keyboard_close(self):
