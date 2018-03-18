@@ -5,6 +5,9 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 import FloatInput
+from kivy.config import Config
+
+Config.set('kivy', 'keyboard_mode', 'dock')
 
 kv = """
 #:import FadeTransition kivy.uix.screenmanager.FadeTransition

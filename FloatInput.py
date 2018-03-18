@@ -1,8 +1,19 @@
 import kivy
 from kivy.uix.textinput import TextInput
 import re
-class FloatInput(TextInput):
+from kivy.core.window import Window
 
+class FloatInput(TextInput):
+    def __init__(self, **kwargs):
+       super(FloatInput, self).__init__(**kwargs)
+       keyboard = Window.request_keyboard(
+           self._keyboard_close, self)
+       if keyboard.widget:
+           vkeyboard = keyboard.widget
+           vkeyboard.layout = 'numeric.json'
+
+    def _keyboard_close(self):
+        pass
     pat = re.compile('[^0-9]')
     def insert_text(self, substring, from_undo=False):
         pat = self.pat
