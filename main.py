@@ -6,6 +6,9 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 import FloatInput
 
+from kivy.config import Config
+
+Config.set('kivy', 'keyboard_mode', 'dock')
 
 kv = """
 #:import FadeTransition kivy.uix.screenmanager.FadeTransition
@@ -64,7 +67,9 @@ class TestApp(App):
     def build(self):
 
             self.root_widget=Builder.load_string(kv)
-            #self.leggi_config()
+            Config.set('kivy', 'keyboard_mode', 'dock')
+            Config.write()
+
             return self.root_widget
     def ap_exit(self):
         exit (0)
